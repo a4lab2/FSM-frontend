@@ -4,7 +4,7 @@ import Delivery from './Delivery';
 // import axios from 'axios';
 
 function App() {
-  const [id, setid] = useState("01H1QGV9A50YDXPW4YSDFYFZGT");
+  const [id, setid] = useState("");
 
   const submit = async (e) => {
     e.preventDefault()
@@ -36,21 +36,22 @@ function App() {
   return (
     <div classname="py-5">
       <div className="bg-dark text-secondary px-4 py-5 text-center">
-        {id === "" ? <div className="card">
-          <div className='card-header'>
-            Create Delivery
-          </div>
+        {id === "" ?
+          <div className="card">
+            <div className='card-header'>
+              Create Delivery
+            </div>
 
-          <form className='card-body' onSubmit={submit}>
-            <div className='mb-3'>
-              <input type="number" name="budget" className="form-control" placeholder='Budget' />
-            </div>
-            <div className='mb-3'>
-              <input type="text" name="notes" className="form-control" placeholder='Note' />
-            </div>
-            <button className='btn btn-primary' type='submit'>Submit</button>
-          </form>
-        </div> : <Delivery />}
+            <form className='card-body' onSubmit={submit}>
+              <div className='mb-3'>
+                <input type="number" name="budget" className="form-control" placeholder='Budget' />
+              </div>
+              <div className='mb-3'>
+                <input type="text" name="notes" className="form-control" placeholder='Note' />
+              </div>
+              <button className='btn btn-primary' type='submit'>Submit</button>
+            </form>
+          </div> : <Delivery id={id} />}
       </div>
     </div>
   );
